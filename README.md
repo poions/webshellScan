@@ -4,6 +4,6 @@
 3) 目前规则中并未添加jsp、asp、aspx等webshell规则
 ---
 
-## 0x02 社工库
+## 0x02 截图
 ![Alt text](https://github.com/poions/webshellScan/raw/master/img/1.png)
 
