@@ -1,0 +1,17 @@
+<web ver="20003">
+	<rule rule_id="10037" score="100" suffix="php" multi="0" insens="1" allchar="1">(\$_(GET|POST|REQUEST)\[.{0,15}\]\s{0,10}\(\s{0,10}\$_(GET|POST|REQUEST).{0,15})</rule>
+	<rule rule_id="10038" score="100" suffix="php" multi="0" insens="1" allchar="1">((\$(_(GET|POST|REQUEST|SESSION|SERVER)(\[[\'"]{0,1})\w{1,12}([\'"]{0,1}\])|\w{1,10}))[\s\n]{0,20}\([\s\n]{0,20}(@{0,1}\$(_(GET|POST|REQUEST|SESSION|SERVER)(\[[\'"]{0,1})\w{1,12}([\'"]{0,1}\])|\w{1,10}))[\s\n]{0,5}\))</rule>
+	<rule rule_id="10039" score="100" suffix="php" multi="0" insens="1" allchar="1">(array_map[\s\n]{0,20}\(.{1,10}[eval|assert|ass\\x65rt].{1,20}\$_(GET|POST|REQUEST).{0,15})</rule>
+	<rule rule_id="10040" score="100" suffix="php" multi="0" insens="1" allchar="1">(call_user_func[\s\n]{0,25}\(.{0,25}\$_(GET|POST|REQUEST).{0,15})</rule>
+	<rule rule_id="10041" score="100" suffix="php" multi="0" insens="1" allchar="1">((eval|assert)[\s|\n]{0,30}\([\s|\n]{0,30}(\\\\{0,1}\$((_(GET|POST|REQUEST|SESSION|SERVER)(\[[\'"]{0,1})[\w\(\)]{0,15}([\'"]{0,1}\]))|\w{1,10}))\s{0,5}\))</rule>
+	<rule rule_id="10042" score="100" suffix="php" multi="0" insens="1" allchar="1">(\s{0,10}=\s{0,10}([{@]{0,2}\\\\{0,1}\$_(GET|POST|REQUEST)|file_get_contents|["\']a["\']\.["\']s["\']\.|["\']e["\']\.["\']v["\']\.|["\']ass["\']\.).{0,20})</rule>
+	<rule rule_id="10043" score="100" suffix="php" multi="0" insens="1" allchar="1">((eval|assert)[\s|\n]{0,30}\((gzuncompress|gzinflate\(){0,1}[\s|\n]{0,30}base64_decode.{0,100})</rule>
+	<rule rule_id="10044" score="100" suffix="php" multi="0" insens="1" allchar="1">(\s{0,10}=\s{0,10}([{@]{0,2}\$_(GET|POST|REQUEST)|[\'"]{0,1}php:\/\/input[\'"]{0,1}|file_get_contents).{0,20})</rule>
+	<rule rule_id="10045" score="100" suffix="php" multi="0" insens="1" allchar="1">(preg_replace[\s\n]{0,10}\([\s\n]{0,10}((["\'].{0,15}[\/@\'][is]{0,2}e[is]{0,2}["\'])|\$[a-zA-Z_][\w"\'\[\]]{0,15})\s{0,5},\s{0,5}.{0,40}(\$_(GET|POST|REQUEST|SESSION|SERVER)|str_rot13|urldecode).{0,30})</rule>
+	<rule rule_id="10046" score="100" suffix="php" multi="0" insens="1" allchar="1">(\$\w+\[\'\w+\'\]\s+\=\s+\'(assert|eval)\'\;)</rule>
+	<rule rule_id="10047" score="100" suffix="php" multi="0" insens="1" allchar="1">(\$\w+.\=.\(string\)key\(\$\_\w+\)\;)</rule>
+	<rule rule_id="10048" score="100" suffix="php" multi="0" insens="1" allchar="1">(preg_replace.*([\'|\"]).*(\/e.*[\'|"]\,))</rule>
+	<rule rule_id="10049" score="100" suffix="php" multi="0" insens="1" allchar="1">(preg_replace\([\'|\"]\/\w+\/\w+[\'|\"]\,.\'.(eval|REQUEST|assert])\(\'.eval\(\(get_magic_quotes_gpc)</rule>
+	<rule rule_id="10050" score="100" suffix="php" multi="0" insens="1" allchar="1">(?i)eval\s+\(\s+gzinFlate\s\(\sbase64_dEcode\s\(\'.*\'\)\s\)\s\)</rule>
+</web>
+	
